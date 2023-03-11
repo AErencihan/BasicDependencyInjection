@@ -1,9 +1,11 @@
 package dataAccess;
 
+import entities.Category;
+
 public class HibernateCategoryDao implements CategoryDao {
 
     @Override
-    public void add(CategoryDao categoryDao) {
+    public void add(Category category) {
 
     }
 }

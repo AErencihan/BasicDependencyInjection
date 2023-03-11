@@ -1,6 +1,8 @@
 package dataAccess;
 
+import entities.Course;
+
 public interface CourseDao {
-    void add(CourseDao courseDao);
+    void add(Course course);
 
 }

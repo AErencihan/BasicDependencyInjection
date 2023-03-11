@@ -10,6 +10,7 @@ import java.util.List;
 public class CourseManager {
     private CourseDao courseDao;
     private Logging[] loggings;
+
     private List<Course> courses = new ArrayList<>();
 
     public CourseManager(CourseDao courseDao, Logging[] loggings, List<Course> courses) {
@@ -18,23 +19,29 @@ public class CourseManager {
         this.courses = courses;
     }
 
-    public void add(Course course) throws Exception{
+    public void add(Course course) throws Exception {
 
-        for(Course i : courses){
-                if(i.getName().equals(course.getName())){
-                    throw new Exception("birden fazla aynı isim bulunamaz");
-                }
-        }
-
+        priceAndNameCheck(course);
         courses.add(course);
-        this.courseDao.add(courseDao);
+        courseDao.add(course);
 
-        for (Logging i : loggings){
+
+        for (Logging i : loggings) {
             i.log(course.getName());
         }
 
+    }
 
+    private void priceAndNameCheck(Course course) throws Exception {
+        if (course.getPrice().intValue() <= 0) {
+            throw new Exception("kurs ücreti 0 dan küçük olamaz");
+        }
 
+        for (Course i : courses) {
+            if (i.getName().equals(course.getName())) {
+                throw new Exception("birden fazla aynı isim bulunamaz");
+            }
+        }
     }
 
 

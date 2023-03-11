@@ -30,7 +30,7 @@ public class CategoryManager {
 
         }
         categories.add(category);
-        this.categoryDao.add(categoryDao);
+        categoryDao.add(category);
 
 
 

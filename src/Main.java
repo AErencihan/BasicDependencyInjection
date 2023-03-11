@@ -9,6 +9,7 @@ import entities.Category;
 import entities.Course;
 import entities.Lecturer;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -30,10 +31,10 @@ public class Main {
 
 
         Lecturer lecturer = new Lecturer("Ayşe", "yilmaz" ,10);
-        
+
 
         CourseManager courseManager = new CourseManager(new HibernateCourseDao(), loggers, courses);
-        Course course1 = new Course(7, "matematik");
+        Course course1 = new Course(7, "matematik", new BigDecimal(0));
 
 
 
